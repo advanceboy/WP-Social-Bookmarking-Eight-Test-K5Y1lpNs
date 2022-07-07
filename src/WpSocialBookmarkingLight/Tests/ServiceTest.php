@@ -15,7 +15,7 @@ class ServiceTest extends TestCase
 {
     /**
      * @test
-     * @dataProvider testCaseServiceType
+     * @dataProvider getServiceTypesTestCase
      *
      * @param $service
      * @param $expectedFlag
@@ -29,7 +29,7 @@ class ServiceTest extends TestCase
     /**
      * @return array
      */
-    public function testCaseServiceType()
+    public function getServiceTypesTestCase()
     {
         return [
             ['hatena', true],
