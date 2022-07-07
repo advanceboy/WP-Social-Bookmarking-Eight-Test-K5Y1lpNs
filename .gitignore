@@ -7,3 +7,4 @@
 *.iml
 vendor
 build
+.phpunit.result.cache
