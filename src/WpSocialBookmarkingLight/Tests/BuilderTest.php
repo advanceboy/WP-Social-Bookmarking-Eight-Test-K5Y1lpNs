@@ -29,7 +29,7 @@ class BuilderTest extends TestCase
         $stub->method('getAll')->willReturn($option);
 
         $builder = new Builder(new Renderer(), $stub);
-        $this->assertContains($expectHtml, $builder->head());
+        $this->assertStringContainsString($expectHtml, $builder->head());
     }
 
     /**
@@ -78,7 +78,7 @@ class BuilderTest extends TestCase
         $stub->method('getAll')->willReturn($option);
 
         $builder = new Builder(new Renderer(), $stub);
-        $this->assertContains($expectHtml, $builder->footer());
+        $this->assertStringContainsString($expectHtml, $builder->footer());
     }
 
     /**
@@ -135,10 +135,10 @@ class BuilderTest extends TestCase
         $builder = new Builder(new Renderer(), $stub);
         $services = 'hatena_button,twitter,facebook_like,pocket';
 
-        $this->assertContains('wsbl_hatena_button', $builder->content($services, '', ''));
-        $this->assertContains('wsbl_twitter', $builder->content($services, '', ''));
-        $this->assertContains('wsbl_facebook_like', $builder->content($services, '', ''));
-        $this->assertContains('wsbl_pocket', $builder->content($services, '', ''));
-        $this->assertContains('[`dummy` not found]', $builder->content('dummy', '', ''));
+        $this->assertStringContainsString('wsbl_hatena_button', $builder->content($services, '', ''));
+        $this->assertStringContainsString('wsbl_twitter', $builder->content($services, '', ''));
+        $this->assertStringContainsString('wsbl_facebook_like', $builder->content($services, '', ''));
+        $this->assertStringContainsString('wsbl_pocket', $builder->content($services, '', ''));
+        $this->assertStringContainsString('[`dummy` not found]', $builder->content('dummy', '', ''));
     }
 }
